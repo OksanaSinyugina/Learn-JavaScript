@@ -1,0 +1,44 @@
+<!-- Create a constructor function Calculator that creates objects with 3 methods:
+read() prompts for two values and saves them as object properties with names a and b respectively.
+sum() returns the sum of these properties.
+mul() returns the multiplication product of these properties.
+
+For instance:
+let calculator = new Calculator();
+calculator.read();
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() ); -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+function Calculator() {
+    this.read = function() {
+        this.a = +prompt('The 1st number is ', '');
+        this.b = +prompt('The 2nd number is ', '');
+    };
+    this.sum = function() {
+        return this.a + this.b;
+    };
+    this.mul = function() {
+        return this.a * this.b;
+    };
+}
+
+const calc = new Calculator();
+
+calc.read();
+alert( "Sum=" + calc.sum() );
+alert( "Mul=" + calc.mul() );
+
+</script>
+
+</body>
+</html>
