@@ -1,0 +1,50 @@
+<!-- 
+Create a function readNumber which prompts for a number until the visitor enters a valid numeric value.
+The resulting value must be returned as a number.
+The visitor can also stop the process by entering an empty line or pressing “CANCEL”. 
+In that case, the function should return null. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function readNumberRecursion() {
+            let value = prompt('number?', '');
+
+            if (value === '' || value === null) {
+                return null;
+            }
+            if (isFinite(value)) {
+                return value;
+            } 
+
+            return readNumberRecursion();
+        }
+
+        function readNumberLoop() {
+            let value;
+            
+            do {
+               value = prompt('number?', '');
+            } while (!isFinite(value))
+
+            if (value === '' || value === null) {
+                return null;
+            }
+
+            return +value;
+        }
+
+        alert ( readNumberRecursion() );
+        alert ( readNumberLoop() );
+
+
+    </script>
+</body>
+</html>
