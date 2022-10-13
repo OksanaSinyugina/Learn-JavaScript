@@ -8,13 +8,21 @@ sum(0)(1)(2)(3)(4)(5) == 15
 P.S. Hint: you may need to setup custom object to primitive conversion for your function.
 */
 
-let sum = function (number) {
-	let sum = 0;
+function sum(a) {
 
-	return function () {
-		return sum += number;
+	let currentSum = a;
+ 
+	function f(b) {
+	  currentSum += b;
+	  return f;
 	}
-}
+ 
+	f.toString = function() {
+	  return currentSum;
+	};
+ 
+	return f;
+ }
 
 console.log( sum(1)(2) );
 console.log( sum(1)(2)(3) );
